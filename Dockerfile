@@ -2,7 +2,7 @@ FROM node:10-slim AS edumeet-builder
 
 # Args
 ARG BASEDIR=/opt
-ARG EDUMEET=edumeet
+ARG EDUMEET=cybermeet
 ARG NODE_ENV=production
 ARG SERVER_DEBUG=''
 ARG BRANCH=develop
@@ -13,7 +13,7 @@ WORKDIR ${BASEDIR}
 RUN apt-get update;apt-get install -y git bash
 
 #checkout code
-RUN git clone --single-branch --branch ${BRANCH} https://github.com/edumeet/${EDUMEET}.git
+RUN git clone --single-branch --branch ${BRANCH} https://github.com/enterpriselinux/${EDUMEET}.git
 
 #install app dep
 WORKDIR ${BASEDIR}/${EDUMEET}/app
@@ -44,21 +44,17 @@ FROM node:10-slim
 
 # Args
 ARG BASEDIR=/opt
-ARG EDUMEET=edumeet
+ARG EDUMEET=cybermeet
 ARG NODE_ENV=production
 ARG SERVER_DEBUG=''
 
 WORKDIR ${BASEDIR}
 
-
 COPY --from=edumeet-builder ${BASEDIR}/${EDUMEET}/server ${BASEDIR}/${EDUMEET}/server
-
-
 
 # Web PORTS
 EXPOSE 80 443 
 EXPOSE 40000-49999/udp
-
 
 ## run server 
 ENV DEBUG ${SERVER_DEBUG}
