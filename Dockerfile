@@ -3,10 +3,10 @@ FROM node:10-slim AS edumeet-builder
 
 # Args
 ARG BASEDIR=/opt
-ARG EDUMEET=edumeet
+ARG EDUMEET=cybermeet
 ARG NODE_ENV=production
 ARG SERVER_DEBUG=''
-ARG BRANCH=master
+ARG BRANCH=develop
 ARG REACT_APP_DEBUG=''
 
 WORKDIR ${BASEDIR}
@@ -14,7 +14,7 @@ WORKDIR ${BASEDIR}
 RUN apt-get update;apt-get install -y git bash
 
 #checkout code
-RUN git clone --single-branch --branch ${BRANCH} https://github.com/edumeet/${EDUMEET}.git
+RUN git clone --single-branch --branch ${BRANCH} https://github.com/enterpriselinux/${EDUMEET}.git
 
 #install app dep
 WORKDIR ${BASEDIR}/${EDUMEET}/app
@@ -45,7 +45,7 @@ FROM node:10-slim
 
 # Args
 ARG BASEDIR=/opt
-ARG EDUMEET=edumeet
+ARG EDUMEET=cybermeet
 ARG NODE_ENV=production
 ARG SERVER_DEBUG=''
 
