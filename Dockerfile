@@ -2,7 +2,7 @@ FROM node:10-slim AS edumeet-builder
 
 # Args
 ARG BASEDIR=/opt
-ARG EDUMEET=cybermeet
+ARG EDUMEET=edumeet
 ARG NODE_ENV=production
 ARG SERVER_DEBUG=''
 ARG BRANCH=develop
@@ -44,7 +44,7 @@ FROM node:10-slim
 
 # Args
 ARG BASEDIR=/opt
-ARG EDUMEET=cybermeet
+ARG EDUMEET=edumeet
 ARG NODE_ENV=production
 ARG SERVER_DEBUG=''
 
