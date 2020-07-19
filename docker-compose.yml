@@ -4,7 +4,7 @@ services:
 # edumeet
   edumeet:
     env_file: .env
-    image: edumeet/edumeet:${TAG}
+    image: cghub/cybermeet:${TAG}
     depends_on: 
       - redis
     build:
